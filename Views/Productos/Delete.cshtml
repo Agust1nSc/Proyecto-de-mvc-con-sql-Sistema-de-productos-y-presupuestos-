@@ -1,0 +1,17 @@
+@model Productos
+
+<h2>Eliminar Producto</h2>
+
+<p>¿Seguro que deseas eliminar este producto?</p>
+
+<ul>
+    <li><strong>ID:</strong> @Model.IdProducto</li>
+    <li><strong>Descripción:</strong> @Model.Descripcion</li>
+    <li><strong>Precio:</strong> $@Model.Precio</li>
+</ul>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="IdProducto" />
+    <button class="btn btn-danger">Eliminar</button>
+    <a href="/Productos" class="btn btn-secondary">Cancelar</a>
+</form>

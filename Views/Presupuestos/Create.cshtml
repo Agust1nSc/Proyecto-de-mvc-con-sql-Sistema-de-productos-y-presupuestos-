@@ -1,0 +1,17 @@
+@model MVC.ViewModels.PresupuestoViewModel
+
+<h2>Crear Presupuesto</h2>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label>Destinatario</label>
+        <input asp-for="NombreDestinatario" class="form-control" />
+        <span asp-validation-for="NombreDestinatario" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-success">Crear</button>
+    <a href="/Presupuestos" class="btn btn-secondary">Volver</a>
+</form>
+
+@section Scripts {
+ <partial name="_ValidationScriptsPartial" />
+}

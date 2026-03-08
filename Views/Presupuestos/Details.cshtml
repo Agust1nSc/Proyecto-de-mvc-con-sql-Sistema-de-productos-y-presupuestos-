@@ -1,0 +1,39 @@
+@model Presupuesto
+
+<h2>Detalle del Presupuesto</h2>
+
+<p><strong>N° Presupuesto:</strong> @Model.IdPresupuesto</p>
+<p><strong>Destinatario:</strong> @Model.NombreDestinatario</p>
+<p><strong>Fecha:</strong> @Model.FechaCreacion.ToShortDateString()</p>
+<p><strong>Cantidad de productos:</strong> @Model.CantidadProductos()</p>
+
+<h3>Productos</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Detalle)
+        {
+            <tr>
+                <td>@item.Producto.Descripcion</td>
+                <td>$@item.Producto.Precio</td>
+                <td>@item.Cantidad</td>
+                <td>$@(item.Producto.Precio* item.Cantidad)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-controller="Presupuestos" asp-action="AgregarProducto" asp-route-id="@Model.IdPresupuesto">
+    Agregar Producto
+</a>
+
+<hr />
+<p><strong>Total sin IVA:</strong> $@Model.MontoPresupuesto()</p>
+<p><strong>Total con IVA:</strong> $@Model.MontoPresupuestoConIva()</p>

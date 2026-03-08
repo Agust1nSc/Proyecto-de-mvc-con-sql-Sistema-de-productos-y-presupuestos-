@@ -1,0 +1,27 @@
+@model MVC.ViewModels.ProductoViewModel
+
+<h2>Editar Producto</h2>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="IdProducto" />
+
+    <div class="mb-3">
+        <label>Descripción</label>
+        <input asp-for="Descripcion" class="form-control" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+
+    </div>
+
+    <div class="mb-3">
+        <label>Precio</label>
+        <input asp-for="Precio" class="form-control" />
+        <span asp-validation-for="Precio" class="text-danger"></span>
+    </div>
+
+    <button class="btn btn-primary">Guardar Cambios</button>
+    <a class="btn btn-secondary" href="/Productos">Volver</a>
+</form>
+
+@section Scripts {
+ <partial name="_ValidationScriptsPartial" />
+}

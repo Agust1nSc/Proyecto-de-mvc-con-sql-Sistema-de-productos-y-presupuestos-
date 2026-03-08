@@ -1,0 +1,27 @@
+@model List<Productos>
+
+<h2>Listado de Productos</h2>
+<a class="btn btn-success mb-3" href="/Productos/Create">➕ Nuevo Producto</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.IdProducto</td>
+                <td>@p.Descripcion</td>
+                <td>$@p.Precio</td>
+                <td>
+                    <a class="btn btn-warning btn-sm" href="/Productos/Edit/@p.IdProducto">✏️ Editar</a>
+                    <a class="btn btn-danger btn-sm" href="/Productos/Delete/@p.IdProducto">🗑️ Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
